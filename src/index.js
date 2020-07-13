@@ -11,14 +11,14 @@ const firebase = require("firebase");
 require("firebase/firestore");
 
 firebase.initializeApp({
-  apiKey: "AIzaSyD_ST6ieO1jUJkD8ifqGXybdEZLkgYHwnA",
-  authDomain: "react-chat-app-ae5eb.firebaseapp.com",
-  databaseURL: "https://react-chat-app-ae5eb.firebaseio.com",
-  projectId: "react-chat-app-ae5eb",
-  storageBucket: "react-chat-app-ae5eb.appspot.com",
-  messagingSenderId: "564341132269",
-  appId: "1:564341132269:web:7a38dfc6a4808c69dcf5e4",
-  measurementId: "G-XEGZWV6R1R",
+  apiKey: "AIzaSyB9QgzJBypPudZr6Sac2KUBoKElMxpej10",
+  authDomain: "chat-application-e20c8.firebaseapp.com",
+  databaseURL: "https://chat-application-e20c8.firebaseio.com",
+  projectId: "chat-application-e20c8",
+  storageBucket: "chat-application-e20c8.appspot.com",
+  messagingSenderId: "490579104850",
+  appId: "1:490579104850:web:c5b22a554551f5f847fb8b",
+  measurementId: "G-DFQH7ZK38Q",
 });
 
 const routing = (
