@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import Login from "./login/login";
-import Signup from "./signup/signup";
-import Dashboard from "./dashboard/dashboard";
+import Login from "./login/Login";
+import Signup from "./signup/Signup";
+import Dashboard from "./dashboard/Dashboard";
 
 const firebase = require("firebase");
 require("firebase/firestore");
