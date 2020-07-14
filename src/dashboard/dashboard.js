@@ -19,26 +19,6 @@ class Dashboard extends Component {
   //user1:user2 in alphabetical order
   buildDocKey = (friend) => [this.state.email, friend].sort().join(":");
 
-  submitMessage = (msg) => {
-    const docKey = this.buildDocKey(
-      this.state.chats[this.state.selectedChat].users.filter(
-        (usr) => usr !== this.state.email
-      )[0]
-    );
-    firebase
-      .firestore()
-      .collection("chats")
-      .doc(docKey)
-      .update({
-        messages: firebase.firestore.FieldValue.arrayUnion({
-          sender: this.state.email,
-          message: msg,
-          timestamp: Date.now(),
-        }),
-        receiverHasRead: false,
-      });
-  };
-
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (!user) this.props.history.push("/login");
@@ -59,12 +39,31 @@ class Dashboard extends Component {
     });
   };
 
+  submitMessage = (msg) => {
+    const docKey = this.buildDocKey(
+      this.state.chats[this.state.selectedChat].users.filter(
+        (usr) => usr !== this.state.email
+      )[0]
+    );
+    firebase
+      .firestore()
+      .collection("chats")
+      .doc(docKey)
+      .update({
+        messages: firebase.firestore.FieldValue.arrayUnion({
+          sender: this.state.email,
+          message: msg,
+          timestamp: Date.now(),
+        }),
+        receiverHasRead: false,
+      });
+  };
+
   signOut = () => {
     firebase.auth().signOut();
   };
 
   selectChat = (chatIndex) => {
-    //console.log("index:", chatIndex);
     this.setState({ selectedChat: chatIndex });
   };
 

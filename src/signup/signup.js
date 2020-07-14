@@ -22,6 +22,8 @@ class Signup extends Component {
     };
   }
 
+  formIsValid = () => this.state.password === this.state.passwordConfirmation;
+
   userTyping = (type, e) => {
     switch (type) {
       case "email":
@@ -37,8 +39,6 @@ class Signup extends Component {
         break;
     }
   };
-
-  formIsValid = () => this.state.password === this.state.passwordConfirmation;
 
   submitSignup = (e) => {
     e.preventDefault();
