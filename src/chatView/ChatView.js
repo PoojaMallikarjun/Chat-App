@@ -26,8 +26,8 @@ class ChatView extends Component {
                   key={index}
                   className={
                     msg.sender === this.props.user
-                      ? classes.userSent
-                      : classes.friendSent
+                      ? classes.friendSent
+                      : classes.userSent
                   }
                 >
                   {msg.message}
