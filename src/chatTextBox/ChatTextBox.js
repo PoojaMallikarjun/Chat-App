@@ -19,9 +19,7 @@ class ChatTextBox extends Component {
       ? this.submitMessage()
       : this.setState({ chatText: e.target.value });
   };
-  userClickedInput = () => {
-    console.log("clicked ip");
-  };
+  userClickedInput = () => this.props.messageReadFn();
   submitMessage = () => {
     if (this.messageValid(this.state.chatText)) {
       this.props.submitMessageFn(this.state.chatText);

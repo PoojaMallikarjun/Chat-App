@@ -63,13 +63,36 @@ class Dashboard extends Component {
     firebase.auth().signOut();
   };
 
-  selectChat = (chatIndex) => {
-    this.setState({ selectedChat: chatIndex });
+  selectChat = async (chatIndex) => {
+    await this.setState({ selectedChat: chatIndex });
+    this.messageRead();
   };
 
   newChatBtnClicked = () => {
     this.setState({ newChatFormVisible: true, selectChat: null });
   };
+
+  messageRead = () => {
+    const docKey = this.buildDocKey(
+      this.state.chats[this.state.selectedChat].users.filter(
+        (usr) => usr !== this.state.email
+      )[0]
+    );
+    if (this.clickedChatWhoIsNotSender(this.state.selectedChat)) {
+      firebase
+        .firestore()
+        .collection("chats")
+        .doc(docKey)
+        .update({ receiverHasRead: true });
+    } else {
+      console.log("clicked message where user is the sender");
+    }
+  };
+
+  clickedChatWhoIsNotSender = (chatIndex) =>
+    this.state.chats[chatIndex].messages[
+      this.state.chats[chatIndex].messages.length - 1
+    ].sender !== this.state.email;
 
   render() {
     const { classes } = this.props;
@@ -90,7 +113,10 @@ class Dashboard extends Component {
           ></ChatView>
         )}
         {this.state.selectedChat !== null && !this.state.newChatFormVisible ? (
-          <ChatTextBox submitMessageFn={this.submitMessage}></ChatTextBox>
+          <ChatTextBox
+            messageReadFn={this.messageRead}
+            submitMessageFn={this.submitMessage}
+          ></ChatTextBox>
         ) : null}
         <Button className={classes.signOutBtn} onClick={this.signOut}>
           Sign Out!
