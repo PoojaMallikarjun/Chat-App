@@ -14,7 +14,7 @@ import NotificationImportant from "@material-ui/icons/NotificationImportant";
 
 class ChatList extends Component {
   newChat = () => {
-    console.log("new chat click");
+    this.props.newChatBtnFn();
   };
   selectChat = (index) => {
     this.props.selectChatFn(index);

@@ -24,6 +24,7 @@ class ChatTextBox extends Component {
     if (this.messageValid(this.state.chatText)) {
       this.props.submitMessageFn(this.state.chatText);
       document.getElementById("chattextbox").value = "";
+      this.setState({ chatText: "" });
     }
   };
 

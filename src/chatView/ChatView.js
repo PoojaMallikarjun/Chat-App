@@ -12,7 +12,11 @@ class ChatView extends Component {
     const { classes, chat, user } = this.props;
 
     if (chat === undefined) {
-      return <main id="chatview-container" className={classes.content}></main>;
+      return (
+        <main id="chatview-container" className={classes.content}>
+          Web Chat App
+        </main>
+      );
     } else {
       return (
         <div>
