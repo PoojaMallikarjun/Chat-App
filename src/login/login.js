@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import styles from "./styles";
+// import { Divider } from "@material-ui/core";
 const firebase = require("firebase");
 
 class Login extends Component {
@@ -55,9 +56,10 @@ class Login extends Component {
     return (
       <main className={classes.main}>
         <CssBaseLine></CssBaseLine>
+        <h1>WEB CHAT APP</h1>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h5">
-            Log In!
+            Log In
           </Typography>
           <form className={classes.form} onSubmit={(e) => this.submitLogin(e)}>
             <FormControl required fullWidth margin="normal">

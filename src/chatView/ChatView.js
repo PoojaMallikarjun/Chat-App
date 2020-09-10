@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./styles";
+import "./style.css";
 import { withStyles } from "@material-ui/core/styles";
 
 class ChatView extends Component {
@@ -13,8 +14,8 @@ class ChatView extends Component {
 
     if (chat === undefined) {
       return (
-        <main id="chatview-container" className={classes.content}>
-          Web Chat App
+        <main id="chatview-container" className="background">
+          chat app
         </main>
       );
     } else {

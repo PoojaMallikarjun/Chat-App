@@ -13,7 +13,6 @@ const styles = (theme) => ({
   newChatBtn: {
     height: "50px",
     borderRadius: "0px",
-    backgroundColor: "#329d9c",
   },
   unreadMessage: {
     color: "red",

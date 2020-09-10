@@ -9,6 +9,10 @@ const styles = (theme) => ({
     height: "50px",
     boxShadow: "0px 0px 2px black",
     color: "white",
+    "&:hover": {
+      backgroundColor: "#fff",
+      color: "#3f51b5",
+    },
   },
 });
 

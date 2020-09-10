@@ -38,6 +38,7 @@ class ChatList extends Component {
           </Button>
           <List>
             {this.props.chats.map((chat, index) => {
+              console.log(chat);
               return (
                 <div key={index}>
                   <ListItem
